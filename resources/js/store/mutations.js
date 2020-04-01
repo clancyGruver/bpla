@@ -1,9 +1,17 @@
 export default {    
-    LOGIN_USER (state) {
-        state.isLogged = true
+    auth_request(state){
+        state.status = 'loading';
     },
-    
-    LOGOUT_USER (state) {
-        state.isLogged = false
-    }
+    auth_success(state, token, user){
+        state.status = 'success';
+        state.token = token;
+        state.user = user;
+    },
+    auth_error(state){
+        state.status = 'error';
+    },
+    logout(state){
+        state.status = '';
+        state.token = '';
+    },
 }

@@ -1,18 +1,20 @@
 import Vue from 'vue';
 window.Vue = Vue;
-window.axios = require('axios');
+
+import axios from 'axios';
 import router from './routes/router';
 import store from './store';
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
-import mainTemplate from './components/main'
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-// Install BootstrapVue
-Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
-Vue.component('mainTemplate', mainTemplate);
+// set jwt
+Vue.prototype.$http = axios;
+const token = localStorage.getItem('token')
+if (token) {
+  Vue.prototype.$http.defaults.headers.common['Authorization'] = token;
+}
 
 new Vue({
     el:'#app',

@@ -11,7 +11,6 @@
 </head>
 <body>
     <div id="app">
-        <main-template />
         <router-view></router-view>
     </div>
     <script src="dist/app.js"></script>

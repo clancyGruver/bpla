@@ -1,3 +1,5 @@
 export default {
-    isLogged: !!localStorage.getItem('token')
+    status: '',
+    token: localStorage.getItem('token') || '',
+    user: {}
 }
