@@ -1,33 +1,69 @@
-import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store';
 import App from '../components/main';
 import Login from '../components/auth/login';
-import Secure from '../components/Secure';
-
-Vue.use(VueRouter);
+import Target from '../components/target';
+import Type from '../components/type';
+import Departament from '../components/departament';
+import BortMain from '../components/bort';
+import Bort from '../components/bort/main';
+import BortType from '../components/bort/main';
+import BortModel from '../components/bort/main';
 
  let router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/', 
-            name: 'home',
-            component: App
-        },
-        {
             path: '/login', 
-            naem: 'Login',
+            name: 'Login',
             component: Login
         },
         {
-            path: '/secure',
-            name: 'secure',
-            component: Secure,
+            path: '/', 
+            name: 'home',
+            component: App,
             meta: { 
               requiresAuth: true
-            }
-          },
+            },
+            children:[
+              {
+                  path: 'targets', 
+                  name: 'Targets',
+                  component: Target
+              },           
+              {
+                  path: 'types', 
+                  name: 'Types',
+                  component: Type
+              }, 
+              {
+                  path: 'departaments', 
+                  name: 'Departaments',
+                  component: Departament
+              },
+              {
+                  path: 'borts',
+                  component: BortMain,
+                  children:[
+                    {
+                      path: '/', 
+                      name: 'Borts',
+                      component: Bort,
+                    },
+                    {
+                      path: 'types', 
+                      name: 'BortTypes',
+                      component: BortType,
+                    },
+                    {
+                      path: 'models', 
+                      name: 'BortModels',
+                      component: BortModel,
+                    },
+                  ]
+              },
+            ]
+        },
     ]
 });
 

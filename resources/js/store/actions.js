@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export default {
+export default {    
     login({commit}, user){
         return new Promise((resolve, reject) => {
-            commit('auth_request')
+            commit('auth_request');
             axios(
                 {
                     url: 'http://localhost:8000/api/login', 
@@ -19,7 +19,7 @@ export default {
                 const token = resp.data.token;
                 const user = resp.data.user;
                 localStorage.setItem('token', token);
-                axios.defaults.headers.common.Authorization = token;
+                axios.defaults.headers.common.Authorization = `Bearer ${token}`;
                 commit('auth_success', token, user);
                 resolve(resp);
             })
@@ -31,11 +31,11 @@ export default {
         })
     },
     logout({commit}){
-    return new Promise((resolve, reject) => {
-        commit('logout');
-        localStorage.removeItem('token');
-        delete axios.defaults.headers.common.Authorization;
-        resolve();
-    })
+        return new Promise((resolve, reject) => {
+            commit('logout');
+            localStorage.removeItem('token');
+            delete axios.defaults.headers.common.Authorization;
+            resolve();
+        })
     }
 }

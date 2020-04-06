@@ -9,19 +9,17 @@
                 </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
+                <li class="nav-item">
+                    <router-link to="/targets" class="nav-link">Цели</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <router-link to="/types" class="nav-link">Типы</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
+                    <router-link to="/departaments" class="nav-link">Подразделения</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <router-link to="/borts" class="nav-link">БВС</router-link>
                 </li>
             </ul>
             </div>

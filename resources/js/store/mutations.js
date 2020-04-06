@@ -14,4 +14,10 @@ export default {
         state.status = '';
         state.token = '';
     },
+    ADD_NOTIFICATION(state, data){
+        state.flash.push(data);
+    },
+    REMOVE_NOTIFICATIONS(state){
+        state.flash = [];
+    },
 }
