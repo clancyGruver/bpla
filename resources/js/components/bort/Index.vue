@@ -3,9 +3,9 @@
         <div class="col-3">
             <nav id="sidebar">
                   <ul class="list-unstyled components">
-                    <router-link to="/borts/types" class="nav-link">БВС</router-link>
-                    <router-link to="/borts/types" class="nav-link">Типы бортов</router-link>
-                    <router-link to="/borts/models" class="nav-link">Модели бортов</router-link>
+                    <router-link to="/borts/" class="nav-link">БВС</router-link>
+                    <router-link to="/borts/types" class="nav-link">Типы БВС</router-link>
+                    <router-link to="/borts/models" class="nav-link">Модели БВС</router-link>
                   </ul>
             </nav>
         </div>

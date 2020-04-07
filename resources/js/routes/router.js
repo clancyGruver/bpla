@@ -7,8 +7,9 @@ import Type from '../components/type';
 import Departament from '../components/departament';
 import BortMain from '../components/bort';
 import Bort from '../components/bort/main';
-import BortType from '../components/bort/main';
-import BortModel from '../components/bort/main';
+import BortType from '../components/bort/types';
+import BortModel from '../components/bort/models';
+import Fly from '../components/fly';
 
  let router = new VueRouter({
     mode: 'history',
@@ -27,9 +28,14 @@ import BortModel from '../components/bort/main';
             },
             children:[
               {
-                  path: 'targets', 
-                  name: 'Targets',
-                  component: Target
+                path: '/', 
+                name: 'Flies',
+                component: Fly
+              },
+              {
+                path: 'targets', 
+                name: 'Targets',
+                component: Target
               },           
               {
                   path: 'types', 
@@ -42,7 +48,7 @@ import BortModel from '../components/bort/main';
                   component: Departament
               },
               {
-                  path: 'borts',
+                  path: 'borts/',
                   component: BortMain,
                   children:[
                     {

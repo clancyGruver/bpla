@@ -1,6 +1,6 @@
 <template>
-    <div class="container mt-3">
-        <h3>БВС</h3>
+    <div class="card container mt-3">
+        <h3>Полеты</h3>
         <table class="table table-hover">
             <thead>
                 <tr>

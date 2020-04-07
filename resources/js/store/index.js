@@ -11,13 +11,15 @@ import targets from './modules/targets';
 import types from './modules/types';
 import departaments from './modules/departaments';
 import borts from './modules/borts';
+import flies from './modules/flies';
 
 export default new VueStore.Store({
     modules:{
         targets,
         types,
         departaments,
-        borts
+        borts,
+        flies
     },
     state,
     actions,

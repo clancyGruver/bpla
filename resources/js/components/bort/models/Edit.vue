@@ -1,16 +1,16 @@
 <template>
 
-  <modal name="DepartamentModal" transition="fadeIn" @closed="cancelHandler" @opened="openedHandler">
+  <modal name="BortModelModal" transition="fadeIn" @closed="cancelHandler" @opened="openedHandler">
         <div class="card">
             <div class="card-header">
-                <h1>{{cardName}} полета</h1>
+                <h1>{{cardName}}</h1>
             </div>
             <div class="card-body">
                 <form>                    
                     <div class="form-group">
                         <label for="name">Наименование</label>
                         <input v-model="localName" type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Введите наименование">
-                        <small id="nameHelp" class="form-text text-muted">Наименование типа полета</small>
+                        <small id="nameHelp" class="form-text text-muted">Наименование модели</small>
                     </div>
                 </form>
                 
@@ -32,7 +32,7 @@ export default{
         }
     },
     computed:{
-        cardName() {return this.initialName.trim() == '' ? 'Новый департамент' : 'Корректировка департамента'},
+        cardName() {return this.initialName.trim() == '' ? 'Новая модель' : 'Корректировка модели'},
         returnObject() {return {
             name: this.localName,
             id: this.id

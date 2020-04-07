@@ -1,9 +1,9 @@
 <template>
 
-  <modal name="DepartamentModal" transition="fadeIn" @closed="cancelHandler" @opened="openedHandler">
+  <modal name="BortTypeModal" transition="fadeIn" @closed="cancelHandler" @opened="openedHandler">
         <div class="card">
             <div class="card-header">
-                <h1>{{cardName}} полета</h1>
+                <h1>{{cardName}}</h1>
             </div>
             <div class="card-body">
                 <form>                    
@@ -32,7 +32,7 @@ export default{
         }
     },
     computed:{
-        cardName() {return this.initialName.trim() == '' ? 'Новый департамент' : 'Корректировка департамента'},
+        cardName() {return this.initialName.trim() == '' ? 'Новый' : 'Корректировка'},
         returnObject() {return {
             name: this.localName,
             id: this.id

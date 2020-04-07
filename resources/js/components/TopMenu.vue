@@ -21,6 +21,10 @@
                 <li class="nav-item">
                     <router-link to="/borts" class="nav-link">БВС</router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link :to="{name:flies}" class="nav-link">Полеты</router-link>
+                </li>
+                
             </ul>
             </div>
         </div>
