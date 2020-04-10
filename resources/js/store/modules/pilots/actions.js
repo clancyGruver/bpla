@@ -1,5 +1,5 @@
 import axios from 'axios';
-const routeApi = '/api/types';
+const routeApi = '/api/pilots';
 
 export default{
     delete({commit}, id){
@@ -23,13 +23,15 @@ export default{
                 .catch( err => {console.log(err);});
         }
     },
-    load({commit}){
-        axios.get(routeApi).then( response => commit('LOADED', response.data ))
-        .catch( error => {
-            if (error.response.status == '401' && error.response.data == 'Unauthorized.') {
-                console.log('pilot unauth')
-                dispatch('logout', null, { root: true })
-            }
-        });       
+    load({commit, dispatch}){
+        axios
+            .get(routeApi)
+            .then( response => commit('LOADED', response.data ))
+            .catch( error => {
+                if (error.response.status == '401' && error.response.data == 'Unauthorized.') {
+                    console.log('pilot unauth')
+                    dispatch('logout', null, { root: true })
+                }
+            });
     },
 }

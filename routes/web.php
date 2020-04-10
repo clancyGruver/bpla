@@ -68,12 +68,30 @@ $router->group(['prefix' => 'api'], function () use ($router) {
             $router->put('/{id}','BortTypeController@update');
         });
 
-        $router->group(['prefix' => 'pilot'], function () use ($router) {
+        $router->group(['prefix' => 'pilots'], function () use ($router) {
             $router->get('/','PilotController@index');
             $router->get('/{id}','PilotController@one');
             $router->post('/','PilotController@create');
             $router->delete('/{id}','PilotController@delete');
             $router->put('/{id}','PilotController@update');
+        });
+
+        $router->group(['prefix' => 'fly'], function () use ($router) {
+            $router->get('/','FlyController@index');
+            $router->get('/{id}','FlyController@one');
+            $router->post('/','FlyController@create');
+            $router->delete('/{id}','FlyController@delete');
+            $router->put('/{id}','FlyController@update');
+        });
+
+        $router->group(['prefix' => 'administrative'], function () use ($router) {
+            $router->get('/','AdministrativeController@index');
+            $router->get('/raions','AdministrativeController@raions');
+            $router->get('/np/{raion_code}','AdministrativeController@nps');
+            $router->get('/{id}','AdministrativeController@one');
+            $router->post('/','AdministrativeController@create');
+            $router->delete('/{id}','AdministrativeController@delete');
+            $router->put('/{id}','AdministrativeController@update');
         });
     }); 
  });

@@ -12,6 +12,8 @@ import types from './modules/types';
 import departaments from './modules/departaments';
 import borts from './modules/borts';
 import flies from './modules/flies';
+import pilots from './modules/pilots';
+import administrative from './modules/administrative';
 
 export default new VueStore.Store({
     modules:{
@@ -19,7 +21,9 @@ export default new VueStore.Store({
         types,
         departaments,
         borts,
-        flies
+        flies,
+        pilots,
+        administrative
     },
     state,
     actions,

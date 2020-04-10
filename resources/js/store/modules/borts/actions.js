@@ -68,12 +68,30 @@ export default{
         }
     },
     load({commit}){
-        axios.get(routeApi).then( response => commit('LOADED', response.data ));        
+        axios.get(routeApi).then( response => commit('LOADED', response.data ))
+        .catch( error => {
+            if (error.response.status == '401' && error.response.data == 'Unauthorized.') {
+                console.log('bort unauth')
+                dispatch('logout', null, { root: true })
+            }
+        });       
     },
     loadTypes({commit}){
-        axios.get(routeApiTypes).then( response => commit('LOADED_TYPES', response.data ));        
+        axios.get(routeApiTypes).then( response => commit('LOADED_TYPES', response.data ))
+        .catch( error => {
+            if (error.response.status == '401' && error.response.data == 'Unauthorized.') {
+                console.log('bort unauth')
+                dispatch('logout', null, { root: true })
+            }
+        });       
     },
     loadModels({commit}){
-        axios.get(routeApiModels).then( response => commit('LOADED_MODELS', response.data ));        
+        axios.get(routeApiModels).then( response => commit('LOADED_MODELS', response.data ))
+        .catch( error => {
+            if (error.response.status == '401' && error.response.data == 'Unauthorized.') {
+                console.log('bort unauth')
+                dispatch('logout', null, { root: true })
+            }
+        });      
     },
 }

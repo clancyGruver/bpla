@@ -24,6 +24,12 @@ export default{
         }
     },
     load({commit}){
-        axios.get(routeApi).then( response => commit('LOADED', response.data ));        
+        axios.get(routeApi).then( response => commit('LOADED', response.data ))
+        .catch( error => {
+            if (error.response.status == '401' && error.response.data == 'Unauthorized.') {
+                console.log('pilot unauth')
+                dispatch('logout', null, { root: true })
+            }
+        });
     },
 }

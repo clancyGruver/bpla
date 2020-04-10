@@ -66,6 +66,9 @@ export default {
       this.$store.dispatch('types/load');
       this.$store.dispatch('departaments/load');
       this.$store.dispatch('borts/load');
+      this.$store.dispatch('flies/load');
+      this.$store.dispatch('pilots/load');
+      this.$store.dispatch('administrative/load');
     },
 
     watch:{

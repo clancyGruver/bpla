@@ -4,8 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pilot extends Model
+class Administrative extends Model
 {
+    
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -13,8 +20,11 @@ class Pilot extends Model
      * @var array
      */
     protected $fillable = [
+        'code',
+        'oktmo',
         'name',
-        'departament_id'
+        'type',
+        'raion_code',
     ];
 
     /**
@@ -23,8 +33,4 @@ class Pilot extends Model
      * @var array
      */
     protected $hidden = [];
-
-    public function departament(){
-        return $this->hasOne('App\Models\Departament', 'id', 'departament_id');
-    }
 }

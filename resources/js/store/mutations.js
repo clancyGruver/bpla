@@ -1,3 +1,5 @@
+import router from '../routes/router';
+
 export default {    
     auth_request(state){
         state.status = 'loading';
@@ -13,6 +15,7 @@ export default {
     logout(state){
         state.status = '';
         state.token = '';
+        router.push('/login');
     },
     ADD_NOTIFICATION(state, data){
         state.flash.push(data);
